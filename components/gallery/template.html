@@ -1,0 +1,8 @@
+<div id="gallery" ng-controller="galleryCtrl">
+    <div class="images" ng-repeat="image in model.images" ng-click="zoom(image)">
+        <img ng-src="{{image.picture}}" alt=""/>
+        Name: {{image.name}}
+        <br>
+        Age: {{image.age}}
+    </div>
+</div>
