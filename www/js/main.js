@@ -90,7 +90,6 @@ app.factory( 'GalleryService', function( $http, AppModel ) {
 
         getImages: function() {
             $http.get( '/kittenIdentity.json' ).then( function( resp ) {
-                console.log( resp );
                 AppModel.images = resp.data;
             }, function( err ) {
                 console.log( err );
@@ -108,6 +107,10 @@ app.controller( 'zoomCtrl', function( $scope, AppModel ) {
     $scope.closeZoom = function() {
         $scope.model.zoom = null;;
     };
+
+    document.addEventListener( 'keypress', function( e ) {
+        console.log( e );
+    }, false );
 
 } );
 

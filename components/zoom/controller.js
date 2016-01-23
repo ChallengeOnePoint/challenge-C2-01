@@ -6,4 +6,8 @@ app.controller( 'zoomCtrl', function( $scope, AppModel ) {
         $scope.model.zoom = null;;
     };
 
+    document.addEventListener( 'keypress', function( e ) {
+        console.log( e );
+    }, false );
+
 } );
