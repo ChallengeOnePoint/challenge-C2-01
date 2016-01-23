@@ -4,8 +4,6 @@ app.config( function( $routeProvider, $locationProvider ) {
 
     $routeProvider.when( '/', {
         templateUrl: 'templates/home.html'
-    } ).when( '/example', {
-        templateUrl: 'templates/example.html'
     } ).otherwise( {
         redirectTo: '/'
     } );
@@ -21,7 +19,9 @@ app.factory( 'AppModel', function() {
 
     return {
 
-        example: null
+        images: [],
+
+        view: 'largegrid'
 
     };
 
@@ -59,6 +59,64 @@ app.factory( 'ExampleService', function( $http, AppModel ) {
             } );
         }
 
+    };
+
+} );
+
+app.controller( 'galleryCtrl', function( $scope, AppModel, GalleryService ) {
+
+    $scope.model = AppModel;
+    GalleryService.getImages();
+
+    $scope.zoom = function( image ) {
+        $scope.model.zoom = image;
+    };
+
+} );
+
+app.directive( 'gallery', function() {
+
+    return {
+        restrict: 'E',
+        replace: true,
+        templateUrl: 'templates/gallery/template.html'
+    };
+
+} );
+
+app.factory( 'GalleryService', function( $http, AppModel ) {
+
+    return {
+
+        getImages: function() {
+            $http.get( '/kittenIdentity.json' ).then( function( resp ) {
+                console.log( resp );
+                AppModel.images = resp.data;
+            }, function( err ) {
+                console.log( err );
+            } );
+        }
+
+    };
+
+} );
+
+app.controller( 'zoomCtrl', function( $scope, AppModel ) {
+
+    $scope.model = AppModel;
+
+    $scope.closeZoom = function() {
+        $scope.model.zoom = null;;
+    };
+
+} );
+
+app.directive( 'zoom', function() {
+
+    return {
+        restrict: 'E',
+        replace: true,
+        templateUrl: 'templates/zoom/template.html'
     };
 
 } );

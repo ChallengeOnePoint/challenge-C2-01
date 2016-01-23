@@ -2,7 +2,9 @@ app.factory( 'AppModel', function() {
 
     return {
 
-        example: null
+        images: [],
+
+        view: 'largegrid'
 
     };
 

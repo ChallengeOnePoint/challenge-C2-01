@@ -1,17 +1,64 @@
 #gallery{
     text-align: center;
 
-    .images{
-        display: inline-block;
-        width: 15%;
-        margin: 10px;
-        text-align: left;
+    #topbar{
         background: #EEEEEE;
+        margin: 0 0 20px 0;
         padding: 20px;
-        border-radius: 3px;
+    }
 
-        img{
-            max-width: 100%;
+    &.smallgrid,
+    &.largegrid{
+        .images{
+            display: inline-block;
+            width: 20%;
+            margin: 10px;
+            text-align: left;
+            background: #EEEEEE;
+            padding: 20px;
+            border-radius: 3px;
+
+            img{
+                max-width: 100%;
+            }
         }
     }
+
+    &.smallgrid{
+        .images{
+            display: inline-block;
+            width: 10%;
+            margin: 5px;
+            text-align: left;
+            background: #EEEEEE;
+            padding: 10px;
+            border-radius: 3px;
+        }
+    }
+
+    &.list{
+        .images{
+            margin: 10px;
+            text-align: left;
+            padding: 20px;
+            border-radius: 3px;
+            line-height: 100px;
+            background: #EEEEEE;
+            padding: 10px;
+            margin: 0 auto 20px auto;
+            width: 90%;
+
+            img{
+                width: 50px;
+                vertical-align: middle;
+                margin: 0 20px 0 0;
+            }
+
+            .details{
+                display: inline-block;
+            }
+        }
+    }
+
+
 }

@@ -46,7 +46,7 @@ gulp.task( 'serve', function() {
 } );
 
 // DEFAULT
-gulp.task( 'default', [ 'less', 'js', 'move_templates', 'serve' ], function() {
+gulp.task( 'default', [ 'less', 'js', 'move_templates' ], function() {
     gulp.watch( [ './core/style/*.less', './components/**/style/*.less' ], [ 'less' ] );
     gulp.watch( [ './core/app.js', './components/**/*.js' ], [ 'js' ] );
     gulp.watch( [ './core/templates/*.html', './components/**/*.html' ], [ 'move_templates' ] );
